@@ -1,0 +1,2 @@
+load speechsig
+soundsc(x)
