@@ -1,0 +1,96 @@
+rng default;
+[X,XN] = wnoise('bumps',10,sqrt(6));
+subplot(211)
+plot(X); title('Original Signal');
+AX = gca;
+AX.YLim = [0 12];
+subplot(212)
+plot(XN); title('Noisy Signal');
+AX = gca;
+AX.YLim = [0 12];
+
+figure()
+N = length(X);
+
+Y_transform = fft(X);
+Y_transform = fftshift(Y_transform);
+w = fftshift((0:N - 1)/N*2*pi);
+w(1:N/2) = w(1:N/2) - 2*pi;
+omega = fs*w/1000/2/pi;%kHz
+
+plot(omega,abs(Y_transform))
+title('ORIGINAL magnitude spectrum of sound2')
+xlabel('f(kHz)')
+ylabel('X(f)')
+grid on
+
+M = 200
+P = 2048
+D = 1
+[stdft,analog,shift] = mySTDFT(X,M,D,P,fs);
+figure
+imagesc(shift,analog/2/pi/1000,abs(stdft));
+axis('xy')
+title('ORIGINAL spectrogram of sound 2')
+xlabel('time')
+ylabel('frequency(kHz)')
+
+
+
+figure()
+
+N = length(XN);
+
+Y_transform = fft(XN);
+Y_transform = fftshift(Y_transform);
+w = fftshift((0:N - 1)/N*2*pi);
+w(1:N/2) = w(1:N/2) - 2*pi;
+omega = fs*w/1000/2/pi;%kHz
+
+plot(omega,abs(Y_transform))
+title('NOISY magnitude spectrum ')
+xlabel('f(kHz)')
+ylabel('X(f)')
+grid on
+
+M = 200
+P = 2048
+D = 1
+[stdft,analog,shift] = mySTDFT(XN,M,D,P,fs);
+figure
+imagesc(shift,analog/2/pi/1000,abs(stdft));
+axis('xy')
+title('NOISY spectrogram ')
+xlabel('time')
+ylabel('frequency(kHz)')
+
+LEV =
+xd = wden(XN,'minimaxi','s','sln',lev,'sym8');
+figure()
+N = length(xdMODWT);
+
+Y_transform = fft(xdMODWT);
+Y_transform = fftshift(Y_transform);
+w = fftshift((0:N - 1)/N*2*pi);
+w(1:N/2) = w(1:N/2) - 2*pi;
+omega = fs*w/1000/2/pi;%kHz
+
+plot(omega,abs(Y_transform))
+title('filtered magnitude spectrum ')
+xlabel('f(kHz)')
+ylabel('X(f)')
+grid on
+
+M = 200
+P = 2048
+D = 1
+[stdft,analog,shift] = mySTDFT(XN,M,D,P,fs);
+figure
+imagesc(shift,analog/2/pi/1000,abs(stdft));
+axis('xy')
+title('filtered spectrogram ')
+xlabel('time')
+ylabel('frequency(kHz)')
+
+
+

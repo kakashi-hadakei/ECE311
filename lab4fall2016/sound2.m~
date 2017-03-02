@@ -42,7 +42,7 @@ ylabel('frequency(kHz)')
 %filter design **********************************
 
 
-fil_sound2 = wden(Y,'sqtwolog','s','mln',4,'sym4');
+fil_sound2 = wden(Y,'sqtwolog','s','mln',4,'sum4');
 %fil_sound2 = wden(Y,'minimaxi','h','mln',4,'sym4');
 N_fil = length(fil_sound2);
 

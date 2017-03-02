@@ -24,7 +24,6 @@ colorbar('Direction','reverse')
 title('spectrum in dB')
 xlabel('kx')
 ylabel('ky')
-
 figure(2);
 inverted = ones(M,N)*256-filter_image;
 imshow(uint8(inverted))
