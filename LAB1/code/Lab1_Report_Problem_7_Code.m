@@ -1,2 +1,0 @@
-load speechsig
-soundsc(x)

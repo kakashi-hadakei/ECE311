@@ -1,5 +1,0 @@
-x = linspace(-5,5,400)
-y = linspace(-4,4,300)
-[xx,yy] = meshgrid(x,y)
-f = sinc(xx).* sinc(yy)
-imagesc(x,y,mag2db(abs(f)))
